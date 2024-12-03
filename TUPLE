@@ -1,0 +1,13 @@
+# Creating a tuple
+dimensions = (1920, 1080)
+print(dimensions)  # Output: (1920, 1080)
+
+# Accessing an item
+print(dimensions[0])  # Output: 1920
+
+# Trying to change a value (will raise an error)
+# dimensions[0] = 1280  # Uncommenting this line will cause a TypeError.
+
+# Tuples can contain different data types
+mixed_tuple = (1, 'apple', 3.14)
+print(mixed_tuple)  # Output: (1, 'apple', 3.14)

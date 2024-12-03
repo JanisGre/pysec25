@@ -1,0 +1,17 @@
+user_info = {
+    'name': 'Janis',
+    'age': 43,
+    'city': 'Riga'
+}
+
+# Accessing a value
+print("User's Name:", user_info['name'])
+
+# Updating a value
+user_info['age'] = 44
+
+# Adding a new key-value pair
+user_info['email'] = 'janis@va.lv'
+
+# Display the updated dictionary
+print("Updated User Info:", user_info)

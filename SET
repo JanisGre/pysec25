@@ -1,0 +1,15 @@
+# Creating a set
+colors = {'red', 'green', 'blue'}
+print(colors)  # Output: {'blue', 'red', 'green'}
+
+# Adding an item
+colors.add('yellow')
+print(colors)  # Output: {'blue', 'yellow', 'red', 'green'}
+
+# Attempting to add a duplicate item (will not change the set)
+colors.add('red')
+print(colors)  # Output: {'blue', 'yellow', 'red', 'green'}
+
+# Removing an item
+colors.remove('green')
+print(colors)  # Output: {'blue', 'yellow', 'red'}
