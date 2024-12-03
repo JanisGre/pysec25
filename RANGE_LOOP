@@ -1,0 +1,5 @@
+# Demonstration of a range loop
+for number in range(11):
+    print("Number:", number)
+else:
+    print("All numbers from 0 to 11 have been printed.")

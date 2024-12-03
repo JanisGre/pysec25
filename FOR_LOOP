@@ -1,0 +1,6 @@
+# Demonstration of a for loop
+fruits = ['apple', 'banana', 'cherry', 'kiwi']
+for fruit in fruits:
+    print("Fruit:", fruit)
+else:
+    print("All fruits have been printed.")

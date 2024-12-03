@@ -1,0 +1,6 @@
+number = 0
+while number < 9:
+    print("Number:", number)
+    number += 1  # Increment count by 1
+else:
+    print("Count reached 9, exiting the loop.")

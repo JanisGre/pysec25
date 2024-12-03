@@ -4,7 +4,7 @@ print(pilsetas)  # Output: ['Riga', 'Valmiera', 'Liepaja']
 
 # Adding an item to the list
 pilsetas.append('Cesis')
-print(pilsetas)  # Output: ['Riga', 'Valmiera', 'Liepaja', 'Cesis']
+print(fruits)  # Output: ['Riga', 'Valmiera', 'Liepaja', 'Cesis']
 
 # Accessing an item
 print(pilsetas[2])  # Output: 'Liepaja'
