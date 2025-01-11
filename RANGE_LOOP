@@ -1,5 +1,11 @@
-# Demonstration of a range loop
-for number in range(11):
-    print("Number:", number)
+# This code demonstrates the use of RANGE loop
+
+# Setting the range of the numbers
+for skaitli in range(12):
+
+# Print all numbers till the range limit reached 
+    print("Skaitlis:", skaitli)
+
+# Output message when range limit reached 
 else:
-    print("All numbers from 0 to 11 have been printed.")
+    print("Visi skaitļi no 0 līdz 12 izdrukāti!")

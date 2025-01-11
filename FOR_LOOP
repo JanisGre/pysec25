@@ -1,6 +1,10 @@
-# Demonstration of a for loop
-fruits = ['apple', 'banana', 'cherry', 'kiwi']
-for fruit in fruits:
-    print("Fruit:", fruit)
+# This code demonstrates the use of FOR loop
+
+# Adding list of berries 
+ogas = ['avene', 'zemene', 'mellene', 'dzervene']
+
+# Outputs all values
+for ogas in ogas:
+    print("Oga:", ogas)
 else:
-    print("All fruits have been printed.")
+    print("Visi ogu nosaukumi izdrukāti!")

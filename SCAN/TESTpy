@@ -1,0 +1,70 @@
+import paramiko
+import re
+
+# Define your server details
+servers = [
+    {'hostname': '192.168.88.88', 'username': 'admin', 'password': 'Python2025'},
+    {'hostname': '192.168.88.101', 'username': 'admin', 'password': 'Python2025'},
+]
+
+def get_windows_info(server):
+    hostname = server['hostname']
+    username = server['username']
+    password = server['password']
+    
+    try:
+        client = paramiko.SSHClient()
+        client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+        client.connect(hostname, username=username, password=password)
+
+        # Define PowerShell commands to gather information
+        commands = {
+            'OS Version': "(Get-CimInstance Win32_OperatingSystem).Caption",
+            'CPU Info': "Get-CimInstance Win32_Processor | Select-Object -Property Name, NumberOfCores, NumberOfLogicalProcessors",
+            'RAM Usage': "systeminfo | findstr /C:'Total Physical Memory' /C:'Available Physical Memory'",
+            'Disk Space': "Get-CimInstance Win32_LogicalDisk -Filter 'DriveType=3' | Select-Object DeviceID, @{Name='Size(GB)';Expression={[math]::round($_.Size / 1GB, 1)}}, @{Name='FreeSpace(GB)';Expression={[math]::round($_.FreeSpace / 1GB, 1)}}, @{Name='FreeSpacePercent';Expression={[math]::round(($_.FreeSpace / $_.Size) * 100, 1)}}"
+        }
+
+        server_data = {}
+        for command, cmd in commands.items():
+            # Execute the PowerShell command
+            powershell_command = f'powershell -Command "{cmd}"'
+            stdin, stdout, stderr = client.exec_command(powershell_command)
+            output = stdout.read().decode()
+            error = stderr.read().decode()
+
+            # Process RAM Usage output to format into GB
+            if command == 'RAM Usage':
+                # Extract total and available RAM from systeminfo output
+                total_memory_match = re.search(r'Total Physical Memory:\s+([\d,]+)\s+MB', output)
+                available_memory_match = re.search(r'Available Physical Memory:\s+([\d,]+)\s+MB', output)
+                
+                if total_memory_match and available_memory_match:
+                    total_ram_gb = round(int(total_memory_match.group(1).replace(",", "")) / 1024, 1)  # Convert MB to GB
+                    free_ram_gb = round(int(available_memory_match.group(1).replace(",", "")) / 1024, 1)  # Convert MB to GB
+                    server_data[command] = f"{total_ram_gb:<12} {free_ram_gb:<12}"  # Aligning output
+                else:
+                    server_data[command] = "Could not parse RAM information."
+            else:
+                # Collect other outputs normally
+                if output:
+                    server_data[command] = output.strip()
+                elif error:
+                    server_data[command] = f"Error: {error.strip()}"
+                else:
+                    server_data[command] = "No output received."
+
+        client.close()
+        return server_data
+    except Exception as e:
+        return {'error': str(e)}
+
+if __name__ == "__main__":
+    for server in servers:
+        info = get_windows_info(server)
+        print(f"Information for {server['hostname']}:")
+        for key, value in info.items():
+            if key == 'RAM Usage':
+                print(f"{key}:\nTotalRAM(GB) FreeRAM(GB)\n{'-'*30}\n{value}\n")
+            else:
+                print(f"{key}:\n{value}\n")

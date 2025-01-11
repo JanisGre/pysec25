@@ -1,15 +1,17 @@
-# Creating a set
-colors = {'red', 'green', 'blue'}
-print(colors)  # Output: {'blue', 'red', 'green'}
+# This code demonstrates the use of SET data type
 
-# Adding an item
-colors.add('yellow')
-print(colors)  # Output: {'blue', 'yellow', 'red', 'green'}
+# Create set
+colors = {'sarkans', 'roza', 'zils'}
+print(colors)  # Output: {'zils', 'sarkans', 'roza'}
 
-# Attempting to add a duplicate item (will not change the set)
-colors.add('red')
-print(colors)  # Output: {'blue', 'yellow', 'red', 'green'}
+# Add item
+colors.add('dzeltens')
+print(colors)  # Output: {'zils', 'dzeltens', 'sarkans', 'roza'}
 
-# Removing an item
-colors.remove('green')
-print(colors)  # Output: {'blue', 'yellow', 'red'}
+# Attemp to add a duplicate item
+colors.add('sarkans')
+print(colors)  # Output: {'zils', 'dzeltens', 'sarkans', 'roza'}
+
+# Remove an item
+colors.remove('roza')
+print(colors)  # Output: {'zils', 'dzeltens', 'sarkans'}

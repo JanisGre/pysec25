@@ -1,14 +1,16 @@
+# This code demonstrates the use of LIST data type
+
 # Creating a list
 pilsetas = ['Riga', 'Valmiera', 'Liepaja']
 print(pilsetas)  # Output: ['Riga', 'Valmiera', 'Liepaja']
 
-# Adding an item to the list
+# Add item to the list
 pilsetas.append('Cesis')
-print(fruits)  # Output: ['Riga', 'Valmiera', 'Liepaja', 'Cesis']
+print(pilsetas)  # Output: ['Riga', 'Valmiera', 'Liepaja', 'Cesis']
 
-# Accessing an item
+# Accessing item
 print(pilsetas[2])  # Output: 'Liepaja'
 
-# Removing an item
+# Removing item
 pilsetas.remove('Riga')
 print(pilsetas)  # Output: ['Valmiera', 'Liepaja', 'Cesis']

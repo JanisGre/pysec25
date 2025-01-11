@@ -1,6 +1,9 @@
-number = 0
-while number < 9:
-    print("Number:", number)
-    number += 1  # Increment count by 1
+# This code demonstrates the use of WHILE loop
+
+skaitlis = 0
+while skaitlis < 11:
+    print("Skaitlis:", skaitlis)
+# Adds value 1 until loop value reached
+    skaitlis += 1
 else:
-    print("Count reached 9, exiting the loop.")
+    print("Sasniegts skaitlis 11, beidzu processu.")

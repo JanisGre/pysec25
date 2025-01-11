@@ -1,0 +1,39 @@
+# This code demonstrates the use of 3 different CLASSES
+
+# Define 1st class
+class Studenti:
+    def __init__(self, vards, uzvards, vecums):
+        self.vards = vards
+        self.uzvards = uzvards
+        self.vecums = vecums
+    
+    def info(self):
+        return f"{self.vards} {self.uzvards}, Vecums: {self.vecums}"
+
+# Define 2nd class
+class Fakultate:
+    def __init__(self, nosaukums, kurss):
+        self.nosaukums = nosaukums    # Fakultātes nosaukums
+        self.kurss = kurss              # Kurss (1. kurss, 2. kurss utt.)
+    
+    def info(self):
+        return f"Fakultāte: {self.nosaukums}, Kurss: {self.kurss}"
+
+# Define 3rd class
+class Pilseta:
+    def __init__(self, nosaukums):
+        self.nosaukums = nosaukums  # Pilsētas nosaukums
+    
+    def info(self):
+        return f"Pilseta: {self.nosaukums}"
+
+
+# Sample data
+student1 = Studenti("Jānis", "Bērziņš", 20)
+fakultate1 = Fakultate("Inženierzinātņu fakultāte", "2. kurss")
+pilseta1 = Pilseta("Valmiera")
+
+# Print sample data
+print(student1.info())
+print(fakultate1.info())
+print(pilseta1.info())

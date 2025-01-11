@@ -1,0 +1,45 @@
+# This code demomstrattes the use of EXCEPTIONS
+
+# Define custome exceptions
+
+class InvalidAgeErr(Exception):
+    def __init__(self, message):
+        super().__init__(message)
+
+# Set age defenitions
+
+def set_age(age):
+    if age < 0:
+        raise InvalidAgeErr("Vecums nedrīkst būt negatīva vērtība!")
+    elif age < 18:
+        print("Jūs esat nepilngadīgs")
+    else:
+        print("Jūs esat pieaudzis")
+    return age
+
+# Main program
+
+def main():
+    while True:
+        try:
+
+            # Prompt user to input age
+            age_input = input("Lūdzu ievadiet savu vecumu (exit = beigt darbu): ")
+            if age_input.lower() == 'exit':
+                print("Beidzam programmu")
+                break
+            
+            # Convert the input to an integer
+            age = int(age_input)  
+            print(f"Ievadītais vecums {age}...")
+            set_age(age)
+        except ValueError:
+            print("Nepareiza vērtība. Lūdzu ievadiet skaitli.")
+        except InvalidAgeErr as e:
+            print("Negatīva vērtība", e)
+       
+       
+
+# Run the program
+if __name__ == "__main__":
+    main()

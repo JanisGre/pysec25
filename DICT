@@ -1,13 +1,16 @@
+# This code demonstrates the use of DICTIONARY data type
+
+#Creating DICTIONARY values
 user_info = {
     'name': 'Janis',
     'age': 43,
     'city': 'Riga'
 }
 
-# Accessing a value
+# Access a value
 print("User's Name:", user_info['name'])
 
-# Updating a value
+# Update a value
 user_info['age'] = 44
 
 # Adding a new key-value pair

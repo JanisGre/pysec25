@@ -1,4 +1,4 @@
-# This script creates a va-test.txt file on a given server
+
 
 import paramiko
 
@@ -32,8 +32,8 @@ def create_va_test_file(hostname, username, password):
 if __name__ == '__main__':
     # Predefined server details
     servers = [
-        {'hostname': '192.168.88.88', 'username': 'your_username', 'password': 'your_password'},
-        {'hostname': '192.168.88.99', 'username': 'your_username', 'password': 'your_password'}
+        {'hostname': 'IP address', 'username': 'your_username', 'password': 'your_password'},
+        {'hostname': 'IP address', 'username': 'your_username', 'password': 'your_password'}
     ]
     
     # Iterate over the server list and create the va-test file
